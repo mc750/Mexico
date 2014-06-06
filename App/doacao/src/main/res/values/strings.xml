@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MAIN STRINGS -->
+    <string name="app_name">DOAÇÃO</string>
+
+    <!-- MENU -->
+    <string name="menu_home">Início</string>
+    <string name="menu_find">Hemocentros</string>
+    <string name="menu_info">Informações</string>
+    <string name="menu_help">Ajuda</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_badges">Medalhas</string>
+
+    <!-- ACCESSIBILITY -->
+    <string name="acs_menu_open">Abrir navegação</string>
+    <string name="acs_menu_close">Fechar navegação</string>
+
+    <!-- ACTION BAR -->
+    <string name="action_help">Ajuda</string>
+
+    <!-- BUTTONS -->
+    <string name="btn_hemocenter">Hemocentros</string>
+    <string name="btn_information">Informações</string>
+
+    <!-- SIGNUP -->
+    <string name="signup_txt">\t\t\t\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non sem volutpat.</string>
+    <string name="signup_name">Nome Completo:</string>
+    <string name="signup_email">Email:</string>
+    <string name="signup_blood">Tipo Sanguíneo:</string>
+    <string name="signup_birthday">Data de Nascimento:</string>
+    <string name="signup_gender">Sexo:</string>
+    <string name="signup_weight">Peso:</string>
+    <string name="signup_height">Altura:</string>
+
+
+</resources>
