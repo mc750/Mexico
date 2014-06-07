@@ -1,28 +1,103 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <color name="app_red">#e95454</color>
-    <color name="app_black">#444444</color>
+    <!-- BASIC COLORS -->
+    <!-- # WHITE SHADES -->
     <color name="app_white">#EAEAEA</color>
-    <color name="app_light_gray">#DADADA</color>
-    <color name="app_medium_gray">#BABABA</color>
-    <color name="app_dark_gray">#222222</color>
+    <color name="app_gray_15">#DADADA</color>
+    <color name="app_gray_25">#BFBFBF</color>
+    <color name="app_gray_35">#A7A7A7</color>
+    <color name="app_gray_55">#727272</color>
+    <color name="app_gray_65">#595959</color>
+    <color name="app_gray_73">#454545</color>
+    <color name="app_black">#333333</color>
+
+    <!-- # RED SHADES -->
+    <color name="app_red">#E95454</color>
+    <color name="app_dark_red">#690808</color>
+    <color name="app_dark_pastel_red">#8D5757</color>
+    <color name="app_light_red">#F7B5B5</color>
+    <color name="app_light_pastel_red">#F78C8C</color>
+
+    <!-- # GREEN SHADES -->
+    <color name="app_green">#C4E051</color>
+    <color name="app_dark_green">#536508</color>
+    <color name="app_dark_pastel_green">#7E8853</color>
+    <color name="app_light_green">#E7F4B2</color>
+    <color name="app_light_pastel_green">#E0F48A</color>
+
+    <!-- # BLUE SHADES -->
+    <color name="app_blue">#3B7295</color>
+    <color name="app_dark_blue">#062B43</color>
+    <color name="app_dark_pastel_blue">#394D5A</color>
+    <color name="app_light_blue">#A2C3D9</color>
+    <color name="app_light_pastel_blue">#80B6D9</color>
+
+    <!-- # DEFAULT COLORS -->
     <color name="app_text_color">#666666</color>
 
+    <!-- APP THEME -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/app_text_color</item>
         <item name="android:windowBackground">@color/app_white</item>
         <item name="android:actionBarStyle">@style/AppActionBar</item>
         <item name="android:buttonStyle">@style/AppButton</item>
         <item name="android:editTextStyle">@style/AppEditText</item>
-        <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:radioButtonStyle">@style/AppRadio</item>
     </style>
 
+    <!-- CONTROL CUSTOMIZATION -->
+    <!-- # INPUT TEXT > label -->
     <style name="AppLabel">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
+    <!-- # ACTION BAR -->
+    <style name="AppActionBar" parent="android:Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/app_gray_15</item>
+    </style>
+
+    <!-- # BUTTON -->
+    <style name="AppButton" parent="android:Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/app_button</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <!-- # BUTTON > acceptance -->
+    <style name="AppButtonAccept" parent="AppButton">
+        <item name="android:background">@drawable/app_button_accept</item>
+        <item name="android:textColor">@color/app_dark_green</item>
+    </style>
+
+    <!-- # BUTTON > reluctance -->
+    <style name="AppButtonReject" parent="AppButton">
+        <item name="android:background">@drawable/app_button_reject</item>
+        <item name="android:textColor">@color/app_dark_red</item>
+    </style>
+
+    <!-- # TEXT INPUT -->
+    <style name="AppEditText" parent="android:Widget.Holo.Light.EditText">
+        <item name="android:background">@drawable/app_edit</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <!-- # RADIO BUTTON -->
+    <style name="AppRadio" parent="android:Widget.Holo.Light.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <!-- CUSTOMIZATIONS -->
+    <!-- # DEFAULT MARGINS -->
     <style name="AppVerMargin">
         <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
         <item name="android:layout_marginBottom">@dimen/activity_horizontal_margin</item>
@@ -31,26 +106,6 @@
     <style name="AppHorMargin">
         <item name="android:layout_marginLeft">@dimen/activity_vertical_margin</item>
         <item name="android:layout_marginRight">@dimen/activity_vertical_margin</item>
-    </style>
-
-    <style name="AppActionBar" parent="android:Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/app_light_gray</item>
-    </style>
-
-    <style name="AppButton" parent="android:Widget.Holo.Light.Button">
-        <item name="android:background">@drawable/app_button</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <style name="AppEditText" parent="android:Widget.Holo.Light.EditText">
-        <item name="android:background">@drawable/app_edit</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:textColor">@color/app_text_color</item>
-        <item name="android:cursorVisible">true</item>
-        <item name="android:textCursorDrawable">@null</item>
     </style>
 
 </resources>

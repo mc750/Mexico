@@ -1,24 +1,23 @@
-package com.mexico750.doacao.Activity;
-
-import android.app.Activity;
+package com.mexico750.doacao.activities;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 
-import com.mexico750.doacao.NavigationDrawerFragment;
+import com.mexico750.doacao.fragments.NavigationDrawerFragment;
 import com.mexico750.doacao.R;
-import com.mexico750.doacao.Utils.JsonUtils;
+import com.mexico750.doacao.utils.JsonUtils;
 import com.mexico750.doacao.preferences.Pref;
 import com.mexico750.doacao.user.User;
 

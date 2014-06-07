@@ -1,12 +1,12 @@
 package com.mexico750.doacao.user;
 
-import com.mexico750.doacao.Utils.JsonUtils;
+import com.mexico750.doacao.utils.JsonUtils;
 
 /**
  * Created by root on 29/05/14.
  */
 
-public class User{
+public class User {
 
     private String name;
     private String cpf;

@@ -1,4 +1,4 @@
-package com.mexico750.doacao.Utils;
+package com.mexico750.doacao.utils;
 
 import android.util.Log;
 

@@ -17,21 +17,49 @@
     <string name="acs_menu_close">Fechar navegação</string>
 
     <!-- ACTION BAR -->
-    <string name="action_help">Ajuda</string>
+    <string name="action_help">Ajudar</string>
 
     <!-- BUTTONS -->
     <string name="btn_hemocenter">Hemocentros</string>
     <string name="btn_information">Informações</string>
 
     <!-- SIGNUP -->
-    <string name="signup_txt">\t\t\t\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non sem volutpat.</string>
-    <string name="signup_name">Nome Completo:</string>
-    <string name="signup_email">Email:</string>
-    <string name="signup_blood">Tipo Sanguíneo:</string>
-    <string name="signup_birthday">Data de Nascimento:</string>
+    <string name="signup_txt">* obrigatório preenchimento.</string>
+    <string name="signup_name">Nome Completo *:</string>
+    <string name="signup_email">Email *:</string>
+    <string name="signup_blood">Tipo Sanguíneo *:</string>
+    <string name="signup_birthday">Data de Nascimento *:</string>
     <string name="signup_gender">Sexo:</string>
     <string name="signup_weight">Peso:</string>
     <string name="signup_height">Altura:</string>
+    <string name="signup_ok">Cadastre-me!</string>
+    <string name="signup_cancel">Não, obrigado!</string>
 
+    <!-- GENDER -->
+    <string name="male">Homem</string>
+    <string name="female">Mulher</string>
 
+    <!-- BLOOD TYPES -->
+    <string-array name="bloodtype">
+        <item>Desconhecido</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+
+    <!-- METRICS -->
+    <string name="length">Metros</string>
+    <string name="length_hint">Em metros</string>
+    <string name="length_acron">m.</string>
+    <string name="weight">Kilos</string>
+    <string name="weight_hint">Em kilos</string>
+    <string name="weight_acron">kg.</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

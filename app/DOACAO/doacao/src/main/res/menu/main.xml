@@ -4,5 +4,5 @@
     tools:context="com.mexico750.doacao.Activity.MainActivity" >
     <item android:id="@+id/action_help"
         android:title="@string/action_help"
-        android:showAsAction="withText|ifRoom" />
+        app:showAsAction="withText|ifRoom" />
 </menu>
