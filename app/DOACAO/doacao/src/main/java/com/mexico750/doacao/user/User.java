@@ -2,6 +2,8 @@ package com.mexico750.doacao.user;
 
 import com.mexico750.doacao.utils.JsonUtils;
 
+import org.joda.time.DateTime;
+
 /**
  * Created by root on 29/05/14.
  */
@@ -11,8 +13,11 @@ public class User {
     private String name;
     private String cpf;
     private String email;
-    private Float weight;
-    private Float height;
+    private DateTime birthday;
+    private Gender gender;
+    private BloodType bloodType;
+    private Double weight;
+    private Double height;
 
     public String getName() {
         return name;
@@ -22,15 +27,19 @@ public class User {
         return cpf;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email; }
 
-    public Float getWeight() {
+    public DateTime getBirthday() { return birthday; }
+
+    public Gender getGender() { return gender; }
+
+    public BloodType getBloodType() { return bloodType; }
+
+    public Double getWeight() {
         return weight;
     }
 
-    public Float getHeight() {
+    public Double getHeight() {
         return height;
     }
 
@@ -46,13 +55,17 @@ public class User {
         this.email = email;
     }
 
-    public void setWeight(Float weight) {
+    public void setBirthday(DateTime birthday) { this.birthday = birthday; }
+
+    public void setGender(Gender gender) { this.gender = gender; }
+
+    public void setBloodType(BloodType bloodType) { this.bloodType = bloodType; }
+
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
-    public void setHeight(Float height) {
-        this.height = height;
-    }
+    public void setHeight(Double height) { this.height = height; }
 
     @Override
     public String toString(){
@@ -67,5 +80,4 @@ public class User {
 
         return Boolean.FALSE;
     }
-
 }

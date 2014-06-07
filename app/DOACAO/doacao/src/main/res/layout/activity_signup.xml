@@ -38,6 +38,7 @@
                 android:text="@string/signup_name" />
 
             <EditText
+                android:id="@+id/signup_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -50,6 +51,7 @@
                 android:text="@string/signup_email"/>
 
             <EditText
+                android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -62,11 +64,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/signup_birthday"/>
 
-            <TextView
+            <EditText
+                android:id="@+id/signup_birthday"
                 style="@style/AppEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin" />
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:inputType="none"
+                android:editable="false" />
 
             <TextView
                 style="@style/AppLabel"
@@ -75,18 +80,21 @@
                 android:text="@string/signup_gender"/>
 
             <RadioGroup
+                android:id="@+id/signup_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="@dimen/activity_vertical_margin">
 
                 <RadioButton
+                    android:id="@+id/signup_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="@string/male"/>
 
                 <RadioButton
+                    android:id="@+id/signup_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -101,6 +109,7 @@
                 android:text="@string/signup_blood"/>
 
             <Spinner
+                android:id="@+id/signup_blood"
                 style="@style/AppEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -129,6 +138,7 @@
                 android:text="@string/signup_weight"/>
 
             <EditText
+                android:id="@+id/signup_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -142,6 +152,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/signup_accept"
                     style="@style/AppButtonAccept"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -150,6 +161,7 @@
                     android:text="@string/signup_ok"/>
 
                 <Button
+                    android:id="@+id/signup_reject"
                     style="@style/AppButtonReject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
