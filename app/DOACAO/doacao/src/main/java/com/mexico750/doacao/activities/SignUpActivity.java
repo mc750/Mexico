@@ -1,7 +1,12 @@
 package com.mexico750.doacao.activities;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,23 +14,20 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.mexico750.doacao.R;
+import com.mexico750.doacao.preferences.Pref;
 import com.mexico750.doacao.user.BloodType;
 import com.mexico750.doacao.user.Gender;
 import com.mexico750.doacao.user.User;
 import com.mexico750.doacao.utils.DateUtils;
+import com.mexico750.doacao.utils.JsonUtils;
 
 import org.joda.time.DateTime;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 
 public class SignUpActivity extends FragmentActivity{
@@ -40,11 +42,15 @@ public class SignUpActivity extends FragmentActivity{
     protected static Button btnReject;
 
     protected static User user = new User();
+    protected static Activity activity;
+    protected static String alert = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.activity = this;
+
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_signup);
 
@@ -74,6 +80,9 @@ public class SignUpActivity extends FragmentActivity{
         comboBlood.setOnItemSelectedListener(new ListSelector());
         inputWeight.setOnFocusChangeListener(new InputChanger());
         inputHeight.setOnFocusChangeListener(new InputChanger());
+
+        btnAccept.setOnClickListener(new AcceptHandler());
+        btnReject.setOnClickListener(new RejectHandler());
     }
 
     /**
@@ -82,6 +91,16 @@ public class SignUpActivity extends FragmentActivity{
     protected void pickDate(){
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    protected void showAlert(String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Opa! Você esqueceu de algo...")
+                .setMessage(message)
+                .setNeutralButton("Obrigado", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     /**
@@ -110,6 +129,7 @@ public class SignUpActivity extends FragmentActivity{
      */
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
         private static DateTime DT;
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             if (DT == null) {
@@ -155,6 +175,10 @@ public class SignUpActivity extends FragmentActivity{
         }
     }
 
+    /**
+     * RadioSelector
+     * Control the radio group selection behaviour
+     */
     protected static class RadioSelector implements RadioGroup.OnCheckedChangeListener{
 
         @Override
@@ -170,6 +194,10 @@ public class SignUpActivity extends FragmentActivity{
         }
     }
 
+    /**
+     * ListSelector
+     * Control the list selection behaviour
+     */
     protected static class ListSelector implements AdapterView.OnItemSelectedListener{
 
         @Override
@@ -181,6 +209,54 @@ public class SignUpActivity extends FragmentActivity{
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
 
+        }
+    }
+
+    protected class AcceptHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            try {
+                if (user.getName() == null || user.getName().indexOf(" ") < 0){
+                    showAlert("... seu nome é muito importante!");
+                } else if (user.getEmail() == null || user.getEmail().indexOf("@") < 0){
+                    showAlert("... prometemos: nunca enviaremos mensagens indesejadas!");
+                } else if (user.getBirthday() == null || user.getBirthday().isAfterNow()){
+                    showAlert("... seria um prazer poder lhe desejar um feliz aniversário!");
+                } else {
+                    Context context = view.getContext();
+                    SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USERDATA.getPreferenceName(), MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    DateTime nextRequest = DateTime.now().plusYears(5);
+
+                    editor.putString(Pref.USERDATA.getField(), JsonUtils.getJson(user));
+                    editor.putLong(Pref.USERSIGNUP.getField(), nextRequest.toInstant().getMillis());
+
+                    editor.commit();
+
+                    context.startActivity(new Intent(context, MainActivity.class));
+                    activity.finish();
+                }
+            }catch(Exception e){
+                showAlert("... ou será que nós nos esquecemos? " + e.getMessage());
+            }
+        }
+    }
+
+    protected class RejectHandler implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            Context context = view.getContext();
+            SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USERSIGNUP.getPreferenceName(), MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            DateTime nextRequest = DateTime.now().plusDays(7);
+            editor.putLong(Pref.USERSIGNUP.getField(), nextRequest.toInstant().getMillis());
+            editor.commit();
+
+            context.startActivity(new Intent(context, MainActivity.class));
+            activity.finish();
         }
     }
 }

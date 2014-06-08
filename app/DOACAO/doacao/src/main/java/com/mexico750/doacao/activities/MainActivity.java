@@ -21,6 +21,8 @@ import com.mexico750.doacao.utils.JsonUtils;
 import com.mexico750.doacao.preferences.Pref;
 import com.mexico750.doacao.user.User;
 
+import org.joda.time.DateTime;
+
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -122,14 +124,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private void loadPreferences(){
         Context context = getApplicationContext();
         SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USERDATA.getPreferenceName(), MODE_PRIVATE);
+        DateTime signupRequest = new DateTime(sharedPreferences.getLong(Pref.USERSIGNUP.getField(), 0L));
+
         this.user = JsonUtils.getObject(
                 sharedPreferences.getString(Pref.USERDATA.getField(), "{}"),
                 User.class
         );
 
-        if (user.isEmpty()){
-            startActivity(new Intent(this, SignUpActivity.class));
-            finish();
+        if (signupRequest.isBeforeNow()){
+            if (user.isEmpty()){
+                startActivity(new Intent(this, SignUpActivity.class));
+                finish();
+            }
         }
     }
 

@@ -5,7 +5,8 @@ package com.mexico750.doacao.preferences;
  */
 public enum Pref {
 
-    USERDATA("user_data_preferences", "user_json");
+    USERDATA("user_data_preferences", "user_json"),
+    USERSIGNUP("user_data_preferences", "sign_up_control");
 
     private String preferenceName;
     private String field;
