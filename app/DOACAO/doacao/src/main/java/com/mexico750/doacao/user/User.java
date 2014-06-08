@@ -17,7 +17,6 @@ public class User {
     private Gender gender;
     private BloodType bloodType;
     private Double weight;
-    private Double height;
     private DonationHistory donationHistory;
 
     public String getName() {
@@ -38,10 +37,6 @@ public class User {
 
     public Double getWeight() {
         return weight;
-    }
-
-    public Double getHeight() {
-        return height;
     }
 
     public void setName(String name) {
@@ -66,19 +61,8 @@ public class User {
         this.weight = weight;
     }
 
-    public void setHeight(Double height) { this.height = height; }
-
     @Override
     public String toString(){
         return JsonUtils.getJson(this);
-    }
-
-    public Boolean isEmpty(){
-        if (name == null || name.isEmpty() || email == null || email.isEmpty() ||
-                cpf == null || cpf.isEmpty() || weight == null || height == null) {
-            return Boolean.TRUE;
-        }
-
-        return Boolean.FALSE;
     }
 }

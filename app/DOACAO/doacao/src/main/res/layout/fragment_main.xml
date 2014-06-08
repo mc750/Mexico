@@ -2,10 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     tools:context="com.mexico750.doacao.activities.MainActivity$PlaceholderFragment">
 
@@ -52,13 +50,13 @@
                         android:text="@string/home_greeting"/>
 
                     <TextView
+                        android:id="@+id/home_user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:textColor="@color/app_dark_green"
                         android:singleLine="true"
-                        android:textSize="46dp"
-                        android:text="Thiago"/>
+                        android:textSize="46dp" />
 
                 </LinearLayout>
 
@@ -69,7 +67,8 @@
                 style="@style/AppBoxRed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:onClick="startDonation">
 
                <TextView
                    android:id="@+id/home_message_text"

@@ -39,11 +39,13 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:windowBackground">@color/app_white</item>
         <item name="android:actionBarStyle">@style/AppActionBar</item>
         <item name="android:buttonStyle">@style/AppButton</item>
         <item name="android:editTextStyle">@style/AppEditText</item>
         <item name="android:radioButtonStyle">@style/AppRadio</item>
+        <item name="android:checkboxStyle">@style/AppCheckBox</item>
     </style>
 
     <!-- CONTROL CUSTOMIZATION -->
@@ -92,6 +94,12 @@
 
     <!-- # RADIO BUTTON -->
     <style name="AppRadio" parent="android:Widget.Holo.Light.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/app_text_color</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <!-- # CHECKBOX BUTTON -->
+    <style name="AppCheckBox" parent="android:Widget.Holo.Light.CompoundButton.CheckBox">
         <item name="android:textColor">@color/app_text_color</item>
         <item name="android:padding">10dp</item>
     </style>

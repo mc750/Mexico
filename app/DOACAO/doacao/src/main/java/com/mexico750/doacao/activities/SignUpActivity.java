@@ -41,10 +41,7 @@ public class SignUpActivity extends FragmentActivity{
     protected static Button btnAccept;
     protected static Button btnReject;
 
-    protected static User user = new User();
     protected static Activity activity;
-    protected static String alert = "";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,20 +64,11 @@ public class SignUpActivity extends FragmentActivity{
         radioGender = (RadioGroup) findViewById(R.id.signup_gender);
         comboBlood = (Spinner) findViewById(R.id.signup_blood);
         inputWeight = (EditText) findViewById(R.id.signup_weight);
-        inputHeight = (EditText) findViewById(R.id.signup_height);
         btnAccept = (Button) findViewById(R.id.signup_accept);
         btnReject = (Button) findViewById(R.id.signup_reject);
 
         inputBirthday.setOnClickListener(new ChangeDate());
         inputBirthday.setOnFocusChangeListener(new ChangeDate());
-        inputName.setOnFocusChangeListener(new InputChanger());
-        inputEmail.setOnFocusChangeListener(new InputChanger());
-        inputBirthday.setOnFocusChangeListener(new InputChanger());
-        radioGender.setOnCheckedChangeListener(new RadioSelector());
-        comboBlood.setOnItemSelectedListener(new ListSelector());
-        inputWeight.setOnFocusChangeListener(new InputChanger());
-        inputHeight.setOnFocusChangeListener(new InputChanger());
-
         btnAccept.setOnClickListener(new AcceptHandler());
         btnReject.setOnClickListener(new RejectHandler());
     }
@@ -136,80 +124,29 @@ public class SignUpActivity extends FragmentActivity{
                 DT = new DateTime();
             }
 
-            return new DatePickerDialog(getActivity(), this, DT.getYear(), DT.getMonthOfYear(), DT.getDayOfMonth());
+            return new DatePickerDialog(getActivity(), this, DT.getYear(), DT.getMonthOfYear() - 1, DT.getDayOfMonth());
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             DT = DateUtils.getDateFor(year, month + 1, day);
             inputBirthday.setText(DateUtils.toStr(DT));
-            user.setBirthday(DT);
         }
     }
 
-    /**
-     * InputChanger
-     * Controls behaviour to every TextView that changes its value
-     */
-    protected static class InputChanger implements View.OnFocusChangeListener{
-
-        @Override
-        public void onFocusChange(View view, boolean inFocus) {
-            if (!inFocus){
-                EditText field = (EditText) view;
-
-                switch(field.getId()){
-                    case R.id.signup_name:
-                        user.setName(field.getText().toString());
-                        break;
-                    case R.id.signup_email:
-                        user.setEmail(field.getText().toString());
-                        break;
-                    case R.id.signup_height:
-                        user.setHeight(Double.parseDouble(field.getText().toString()));
-                        break;
-                    case R.id.signup_weight:
-                        user.setWeight(Double.parseDouble(field.getText().toString()));
-                        break;
-                }
-            }
+    protected User createUser(){
+        User newUser = new User();
+        newUser.setName(inputName.getText().toString());
+        newUser.setEmail(inputEmail.getText().toString());
+        newUser.setBirthday(DateUtils.parseDate(inputBirthday.getText().toString()));
+        if (radioGender.getCheckedRadioButtonId() == R.id.signup_male) {
+            newUser.setGender(Gender.MALE);
+        } else if (radioGender.getCheckedRadioButtonId() == R.id.signup_female) {
+            newUser.setGender(Gender.FEMALE);
         }
-    }
+        newUser.setBloodType(BloodType.getByName(comboBlood.getSelectedItem().toString()));
+        newUser.setWeight(Double.parseDouble(inputWeight.getText().toString()));
 
-    /**
-     * RadioSelector
-     * Control the radio group selection behaviour
-     */
-    protected static class RadioSelector implements RadioGroup.OnCheckedChangeListener{
-
-        @Override
-        public void onCheckedChanged(RadioGroup radioGroup, int i) {
-            switch(radioGroup.getCheckedRadioButtonId()){
-                case R.id.signup_female:
-                    user.setGender(Gender.FEMALE);
-                    break;
-                case R.id.signup_male:
-                    user.setGender(Gender.MALE);
-                    break;
-            }
-        }
-    }
-
-    /**
-     * ListSelector
-     * Control the list selection behaviour
-     */
-    protected static class ListSelector implements AdapterView.OnItemSelectedListener{
-
-        @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            String selectedItem = adapterView.getSelectedItem().toString();
-            user.setBloodType(BloodType.getByName(selectedItem));
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
+        return newUser;
     }
 
     protected class AcceptHandler implements View.OnClickListener{
@@ -217,19 +154,21 @@ public class SignUpActivity extends FragmentActivity{
         @Override
         public void onClick(View view) {
             try {
-                if (user.getName() == null || user.getName().indexOf(" ") < 0){
+                if (inputName.getText() == null || inputName.getText().toString().indexOf(" ") < 0){
                     showAlert("... seu nome é muito importante!");
-                } else if (user.getEmail() == null || user.getEmail().indexOf("@") < 0){
+                } else if (inputEmail.getText() == null || inputEmail.getText().toString().indexOf("@") < 0){
                     showAlert("... prometemos: nunca enviaremos mensagens indesejadas!");
-                } else if (user.getBirthday() == null || user.getBirthday().isAfterNow()){
+                } else if (inputBirthday.getText() == null || DateUtils.parseDate(inputBirthday.getText().toString()).isAfterNow()){
                     showAlert("... seria um prazer poder lhe desejar um feliz aniversário!");
+                } else if (radioGender.getCheckedRadioButtonId() < 1){
+                    showAlert("... gostaríamos de saber se podemos o chamar por Sr. ou Sra.!");
                 } else {
                     Context context = view.getContext();
                     SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USER_DATA.getPreferenceName(), MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     DateTime nextRequest = DateTime.now().plusYears(5);
 
-                    editor.putString(Pref.USER_DATA.getField(), JsonUtils.getJson(user));
+                    editor.putString(Pref.USER_DATA.getField(), JsonUtils.getJson(createUser()));
                     editor.putLong(Pref.USER_SIGNUP.getField(), nextRequest.toInstant().getMillis());
 
                     editor.commit();
