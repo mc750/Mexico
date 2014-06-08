@@ -19,7 +19,7 @@
     <color name="app_light_pastel_red">#F78C8C</color>
 
     <!-- # GREEN SHADES -->
-    <color name="app_green">#C4E051</color>
+    <color name="app_green">#A0BA36</color>
     <color name="app_dark_green">#536508</color>
     <color name="app_dark_pastel_green">#7E8853</color>
     <color name="app_light_green">#E7F4B2</color>
@@ -56,7 +56,7 @@
 
     <!-- # ACTION BAR -->
     <style name="AppActionBar" parent="android:Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/app_gray_15</item>
+        <item name="android:background">@color/app_white</item>
     </style>
 
     <!-- # BUTTON -->
@@ -94,6 +94,28 @@
     <style name="AppRadio" parent="android:Widget.Holo.Light.CompoundButton.RadioButton">
         <item name="android:textColor">@color/app_text_color</item>
         <item name="android:padding">10dp</item>
+    </style>
+
+    <!-- # BOX -->
+    <style name="AppBox">
+        <item name="android:background">@drawable/app_box</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <!-- # BOX > green -->
+    <style name="AppBoxGreen" parent="AppBox">
+        <item name="android:background">@drawable/app_box_green</item>
+    </style>
+
+    <!-- # BOX > red -->
+    <style name="AppBoxRed" parent="AppBox">
+        <item name="android:background">@drawable/app_box_red</item>
+    </style>
+
+    <!-- # BOX > blue -->
+    <style name="AppBoxBlue" parent="AppBox">
+        <item name="android:background">@drawable/app_box_blue</item>
     </style>
 
     <!-- CUSTOMIZATIONS -->

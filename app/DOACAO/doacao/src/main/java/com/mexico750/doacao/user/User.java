@@ -18,6 +18,7 @@ public class User {
     private BloodType bloodType;
     private Double weight;
     private Double height;
+    private DonationHistory donationHistory;
 
     public String getName() {
         return name;

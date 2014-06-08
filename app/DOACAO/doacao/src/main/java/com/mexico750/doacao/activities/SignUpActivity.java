@@ -225,12 +225,12 @@ public class SignUpActivity extends FragmentActivity{
                     showAlert("... seria um prazer poder lhe desejar um feliz aniversário!");
                 } else {
                     Context context = view.getContext();
-                    SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USERDATA.getPreferenceName(), MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USER_DATA.getPreferenceName(), MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     DateTime nextRequest = DateTime.now().plusYears(5);
 
-                    editor.putString(Pref.USERDATA.getField(), JsonUtils.getJson(user));
-                    editor.putLong(Pref.USERSIGNUP.getField(), nextRequest.toInstant().getMillis());
+                    editor.putString(Pref.USER_DATA.getField(), JsonUtils.getJson(user));
+                    editor.putLong(Pref.USER_SIGNUP.getField(), nextRequest.toInstant().getMillis());
 
                     editor.commit();
 
@@ -248,11 +248,11 @@ public class SignUpActivity extends FragmentActivity{
         @Override
         public void onClick(View view) {
             Context context = view.getContext();
-            SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USERSIGNUP.getPreferenceName(), MODE_PRIVATE);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(Pref.USER_SIGNUP.getPreferenceName(), MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
             DateTime nextRequest = DateTime.now().plusDays(7);
-            editor.putLong(Pref.USERSIGNUP.getField(), nextRequest.toInstant().getMillis());
+            editor.putLong(Pref.USER_SIGNUP.getField(), nextRequest.toInstant().getMillis());
             editor.commit();
 
             context.startActivity(new Intent(context, MainActivity.class));
