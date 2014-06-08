@@ -5,7 +5,8 @@ package com.mexico750.doacao.user;
  */
 public class UserConfiguration {
 
-    private Boolean skipFirstTest;
+    private Boolean skipFirstTest = Boolean.FALSE;
+    private Boolean isNewUser = Boolean.TRUE;
 
     public Boolean getSkipFirstTest() {
         return skipFirstTest;
@@ -13,5 +14,13 @@ public class UserConfiguration {
 
     public void setSkipFirstTest(Boolean skipFirstTest) {
         this.skipFirstTest = skipFirstTest;
+    }
+
+    public Boolean getIsNewUser() {
+        return isNewUser;
+    }
+
+    public void setIsNewUser(Boolean isNewUser) {
+        this.isNewUser = isNewUser;
     }
 }

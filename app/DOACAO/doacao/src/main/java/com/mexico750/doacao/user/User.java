@@ -17,8 +17,8 @@ public class User {
     private Gender gender;
     private BloodType bloodType;
     private Double weight;
-    private DonationHistory donationHistory;
-    private UserConfiguration configuration;
+    private DonationHistory donationHistory = new DonationHistory();
+    private UserConfiguration configuration = new UserConfiguration();
 
     public String getName() {
         return name;

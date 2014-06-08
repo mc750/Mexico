@@ -20,17 +20,17 @@
             android:textSize="32dp"
             android:textColor="@color/app_red"
             android:textStyle="bold"
-            android:text="@string/donate_2_header"/>
+            android:text="@string/evaluate_header"/>
 
         <TextView
             android:layout_marginTop="20dp"
             style="@style/AppLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_age"/>
+            android:text="@string/evaluate_age"/>
 
         <EditText
-            android:id="@+id/donate_age"
+            android:id="@+id/evaluation_age"
             style="@style/AppEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,10 +42,10 @@
             style="@style/AppLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_gender"/>
+            android:text="@string/evaluate_gender"/>
 
         <EditText
-            android:id="@+id/donate_gender"
+            android:id="@+id/evaluation_gender"
             style="@style/AppEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:text="@string/signup_weight"/>
 
         <EditText
-            android:id="@+id/donate_weight"
+            android:id="@+id/evaluation_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
@@ -80,10 +80,10 @@
                 style="@style/AppLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/donate_2_pregnancy"/>
+                android:text="@string/evaluate_pregnancy"/>
 
             <Spinner
-                android:id="@+id/signup_blood"
+                android:id="@+id/evaluation_pregnancy"
                 style="@style/AppEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,9 +95,10 @@
                 style="@style/AppLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/donate_2_breast_feeding"/>
+                android:text="@string/evaluate_breast_feeder"/>
 
             <CheckBox
+                android:id="@+id/evaluation_breastfeeder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/yes" />
@@ -109,9 +110,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_cold"/>
+            android:text="@string/evaluate_cold"/>
 
         <CheckBox
+            android:id="@+id/evaluation_cold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -121,9 +123,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_bacteria"/>
+            android:text="@string/evaluate_bacteria"/>
 
         <CheckBox
+            android:id="@+id/evaluation_bacterias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -133,9 +136,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_virus"/>
+            android:text="@string/evaluate_virus"/>
 
         <CheckBox
+            android:id="@+id/evaluation_viruses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -145,9 +149,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_vaccine"/>
+            android:text="@string/evaluate_vaccine"/>
 
         <CheckBox
+            android:id="@+id/evaluation_vaccines"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -157,9 +162,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_cirurgy"/>
+            android:text="@string/evaluate_cirurgy"/>
 
         <CheckBox
+            android:id="@+id/evaluation_cirurgy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -169,9 +175,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_tatoo"/>
+            android:text="@string/evaluate_tattoo"/>
 
         <CheckBox
+            android:id="@+id/evaluation_tattoo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -181,9 +188,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_std"/>
+            android:text="@string/evaluate_std"/>
 
         <CheckBox
+            android:id="@+id/evaluation_std"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -193,9 +201,10 @@
             style="@style/AppLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/donate_2_hepatitis"/>
+            android:text="@string/evaluate_hepatitis"/>
 
         <CheckBox
+            android:id="@+id/evaluation_hepatitis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yes" />
@@ -206,23 +215,23 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/signup_accept"
+                android:id="@+id/evaluation_accept"
                 style="@style/AppButtonAccept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:layout_margin="@dimen/margin_default"
-                android:text="@string/donate_2_submit"/>
+                android:text="@string/evaluate_submit"/>
 
             <Button
-                android:id="@+id/signup_reject"
+                android:id="@+id/evaluation_reject"
                 style="@style/AppButtonReject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
                 android:layout_margin="@dimen/margin_default"
-                android:text="@string/donate_2_cancel"
-                android:onClick="cancelDonation"/>
+                android:text="@string/evaluate_cancel"
+                android:onClick="cancelEvaluation"/>
 
         </LinearLayout>
 

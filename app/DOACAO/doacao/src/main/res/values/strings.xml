@@ -43,22 +43,31 @@
     <string name="donate_1_text4">\t\t\t\tMas lembre-se: este teste possui caráter informativo. Na instituição de coleta, você deverá passar por uma rigorosa triagem.</string>
     <string name="donate_1_btn_accept">Fazer Avaliação</string>
     <string name="donate_1_btn_reject">Pular</string>
-    <string name="donate_2_header">AVALIAÇÃO</string>
-    <string name="donate_2_age">Idade:</string>
-    <string name="donate_2_gender">Sexo:</string>
-    <string name="donate_2_weight">Peso:</string>
-    <string name="donate_2_pregnancy">Gravidez:</string>
-    <string name="donate_2_breast_feeding">Amamenta menores de 12 meses?</string>
-    <string name="donate_2_cold">Gripe, refriado ou conjuntivite nos últimos 7 dias?</string>
-    <string name="donate_2_tatoo">Tatuagem nos últimos 12 meses?</string>
-    <string name="donate_2_std">DSTs ou situações de risco de DST nos últimos 12 meses?</string>
-    <string name="donate_2_virus">Caxumba ou catapora no último mês?</string>
-    <string name="donate_2_vaccine">Recebeu vacinação ou adquiriu dengue no último mês?</string>
-    <string name="donate_2_cirurgy">Passou por procedimento cirurgico no último ano?</string>
-    <string name="donate_2_bacteria">Infecções bacterianas nas últimas 2 semanas?</string>
-    <string name="donate_2_hepatitis">Hepatite:</string>
-    <string name="donate_2_submit">Resultado</string>
-    <string name="donate_2_cancel">Voltar</string>
+
+    <!-- EVALUATION FORM -->
+    <string name="evaluate_header">AVALIAÇÃO</string>
+    <string name="evaluate_age">Idade:</string>
+    <string name="evaluate_gender">Sexo:</string>
+    <string name="evaluate_weight">Peso:</string>
+    <string name="evaluate_pregnancy">Gravidez:</string>
+    <string name="evaluate_breast_feeder">Amamenta menores de 12 meses?</string>
+    <string name="evaluate_cold">Gripe, refriado ou conjuntivite nos últimos 7 dias?</string>
+    <string name="evaluate_tattoo">Tatuagem nos últimos 12 meses?</string>
+    <string name="evaluate_std">Risco de ter contraído DST nos últimos 12 meses?</string>
+    <string name="evaluate_virus">Caxumba ou catapora no último mês?</string>
+    <string name="evaluate_vaccine">Recebeu vacinação ou adquiriu dengue no último mês?</string>
+    <string name="evaluate_cirurgy">Passou por procedimento cirurgico no último ano?</string>
+    <string name="evaluate_bacteria">Infecções bacterianas nas últimas 2 semanas?</string>
+    <string name="evaluate_hepatitis">Hepatite:</string>
+    <string name="evaluate_submit">Resultado</string>
+    <string name="evaluate_cancel">Voltar</string>
+
+    <!-- EVALUATION RESULT -->
+    <string name="evaluate_result_header">RESULTADO DA AVALIAÇÃO</string>
+    <string name="evaluate_result_success">Parabéns, você está apto a doar sangue. Veja abaixo dicas a seguir para sua doação.</string>
+    <string name="evaluate_result_error">Infelizmente vocẽ não está apto a realizar uma doação.</string>
+    <string name="evaluate_result_donation_date">A data para que você realize uma doação é: </string>
+    <string name="evaluate_result_error_explanation">Entenda porque sua doação é arriscada e saiba como prosseguir.</string>
 
     <!-- HOME -->
     <string name="home_greeting">Olá</string>
@@ -100,6 +109,5 @@
     <string name="weight">Kilos</string>
     <string name="weight_hint">Em kilos</string>
     <string name="weight_acron">kg.</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -75,7 +75,7 @@
                     android:layout_weight="0.3"
                     android:text="@string/donate_1_btn_accept"
                     android:layout_marginRight="10dp"
-                    android:onClick="nextDonationPage" />
+                    android:onClick="goEvaluation" />
 
 
                 <Button
