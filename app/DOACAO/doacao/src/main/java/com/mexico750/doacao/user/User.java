@@ -18,6 +18,7 @@ public class User {
     private BloodType bloodType;
     private Double weight;
     private DonationHistory donationHistory;
+    private UserConfiguration configuration;
 
     public String getName() {
         return name;
@@ -38,6 +39,10 @@ public class User {
     public Double getWeight() {
         return weight;
     }
+
+    public DonationHistory getDonationHistory() { return donationHistory; }
+
+    public void setConfiguration(UserConfiguration configuration) { this.configuration = configuration; }
 
     public void setName(String name) {
         this.name = name;
@@ -61,8 +66,13 @@ public class User {
         this.weight = weight;
     }
 
+    public void setDonationHistory(DonationHistory donationHistory) { this.donationHistory = donationHistory; }
+
+    public UserConfiguration getConfiguration() { return configuration; }
+
     @Override
     public String toString(){
         return JsonUtils.getJson(this);
     }
+
 }

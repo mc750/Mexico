@@ -80,7 +80,6 @@
         <item>O+</item>
         <item>O-</item>
     </string-array>
-
     <string-array name="pregnancy">
         <item>Não</item>
         <item>Sim, estou há 2 meses</item>
@@ -101,5 +100,6 @@
     <string name="weight">Kilos</string>
     <string name="weight_hint">Em kilos</string>
     <string name="weight_acron">kg.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

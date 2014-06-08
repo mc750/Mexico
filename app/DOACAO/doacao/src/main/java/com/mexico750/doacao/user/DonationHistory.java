@@ -7,7 +7,7 @@ import java.util.Collections;
  * Created by root on 08/06/14.
  */
 public class DonationHistory {
-    private ArrayList<Donation> donationHistory;
+    private ArrayList<Donation> donationHistory = new ArrayList<Donation>();
 
     public Donation getFirst(){
         if (donationHistory.isEmpty()) return null;
@@ -27,5 +27,9 @@ public class DonationHistory {
     public void addDonation(Donation donation){
         donationHistory.add(donation);
         Collections.sort(donationHistory);
+    }
+
+    public void setDonationHistory(ArrayList<Donation> donationHistory) {
+        this.donationHistory = donationHistory;
     }
 }
