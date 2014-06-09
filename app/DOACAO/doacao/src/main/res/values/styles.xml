@@ -138,4 +138,17 @@
         <item name="android:layout_marginRight">@dimen/activity_vertical_margin</item>
     </style>
 
+    <style name="AppInfoSubtitle">
+        <item name="android:textColor">@color/app_blue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <style name="AppInfoQuestion">
+        <item name="android:textColor">@color/app_green</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
 </resources>

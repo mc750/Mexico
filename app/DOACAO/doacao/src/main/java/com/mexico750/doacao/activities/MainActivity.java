@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.View;
 
 import com.mexico750.doacao.fragments.DonationFragment;
 import com.mexico750.doacao.fragments.EvaluationFragment;
+import com.mexico750.doacao.fragments.InformationFragment;
 import com.mexico750.doacao.fragments.MainFragment;
 import com.mexico750.doacao.fragments.NavigationDrawerFragment;
 import com.mexico750.doacao.R;
@@ -33,6 +35,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private static final String MAIN_STACK = "MAIN";
     private static final String EVALUATION_STACK = "EVALUATION";
     private static final String DONATION_STACK = "DONATION";
+    private static final String INFORMATION_STACK = "INFORMATION";
 
     private static User user;
     private static UserHealth health;
@@ -143,7 +146,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        DateTime nextDonation = userHealth.calculateNextDonation();
+        final DateTime nextDonation = userHealth.calculateNextDonation();
         String message;
         if (nextDonation == null){
             message = "Infelizmente existe uma grande possibilidade de você não poder ser doador. Clique ir e veja o resultado da sua avaliação.";
@@ -157,7 +160,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         builder.setTitle("Resultado da Avaliação")
                 .setMessage(message)
-                .setNeutralButton("Ir", null);
+                .setNeutralButton("Ir", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (nextDonation == null){
+
+                        } else if (nextDonation.isAfterNow()){
+
+                        } else {
+                            openFragment(new InformationFragment(), INFORMATION_STACK);
+                        }
+                    }
+                });
 
         AlertDialog dialog = builder.create();
         dialog.show();

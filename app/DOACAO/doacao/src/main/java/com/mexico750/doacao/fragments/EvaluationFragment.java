@@ -83,6 +83,8 @@ public class EvaluationFragment extends Fragment implements View.OnClickListener
             checkTattoo = (CheckBox) view.findViewById(R.id.evaluation_tattoo);
             checkStd = (CheckBox) view.findViewById(R.id.evaluation_std);
             checkHepatitis = (CheckBox) view.findViewById(R.id.evaluation_hepatitis);
+            checkBreastFeeding = (CheckBox) view.findViewById(R.id.evaluation_breastfeeder);
+            selectPregnancy = (Spinner) view.findViewById(R.id.evaluation_pregnancy);
 
             inputAge.setText(Years.yearsBetween(user.getBirthday(), new DateTime()).getYears() + " anos");
             inputGender.setText(user.getGender().getGender());
